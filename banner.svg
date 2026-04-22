@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 160" width="900" height="160">
+  <defs>
+
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060816"/>
+      <stop offset="100%" stop-color="#0d1528"/>
+    </linearGradient>
+
+    <linearGradient id="rb" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#FF0080"/>
+      <stop offset="18%"  stop-color="#FF5500"/>
+      <stop offset="36%"  stop-color="#FFD100"/>
+      <stop offset="54%"  stop-color="#22DD00"/>
+      <stop offset="72%"  stop-color="#00AAFF"/>
+      <stop offset="100%" stop-color="#BB00FF"/>
+    </linearGradient>
+
+    <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="transparent"/>
+      <stop offset="25%"  stop-color="#72e7ff" stop-opacity="0.8"/>
+      <stop offset="60%"  stop-color="#ff5bbd" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+
+    <filter id="glow" x="-30%" y="-60%" width="160%" height="220%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="orbglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="160" fill="url(#bg)"/>
+
+  <!-- Top + bottom accent lines -->
+  <line x1="80" y1="1" x2="820" y2="1" stroke="url(#edge)" stroke-width="1.5"/>
+  <line x1="80" y1="159" x2="820" y2="159" stroke="url(#edge)" stroke-width="1" opacity="0.4"/>
+
+  <!-- Drifting cyan orb (left) -->
+  <circle cx="120" cy="80" r="90" fill="#72e7ff" opacity="0.07" filter="url(#orbglow)">
+    <animate attributeName="cx" values="120;200;120" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    <animate attributeName="opacity" values="0.07;0.11;0.07" dur="9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Drifting pink orb (right) -->
+  <circle cx="780" cy="80" r="90" fill="#ff5bbd" opacity="0.08" filter="url(#orbglow)">
+    <animate attributeName="cx" values="780;700;780" dur="11s" repeatCount="indefinite" calcMode="spline" keySplines="0.45 0 0.55 1; 0.45 0 0.55 1"/>
+    <animate attributeName="opacity" values="0.08;0.13;0.08" dur="11s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- "drasticstatic" — main title, rainbow gradient -->
+  <text x="450" y="88"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="ui-monospace, 'Cascadia Code', 'Fira Code', monospace"
+        font-weight="900"
+        font-size="68"
+        letter-spacing="-2"
+        fill="url(#rb)"
+        filter="url(#glow)">drasticstatic</text>
+
+  <!-- Tagline -->
+  <text x="450" y="128"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-family="ui-monospace, 'Fira Code', monospace"
+        font-size="15"
+        letter-spacing="4"
+        fill="#9fb0c8"
+        opacity="0.85">minister · machinist · builder</text>
+
+</svg>
