@@ -169,6 +169,41 @@
         color: rgba(230, 237, 247, 0.72);
       }
 
+      .brand-mark {
+        display: block;
+        margin: 0 auto 1.4rem;
+        width: 52px;
+        height: 52px;
+        filter: drop-shadow(0 0 12px rgba(114, 231, 255, 0.28));
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      .typing-line {
+        min-height: 1.5rem;
+        color: var(--cyan);
+        font-size: 0.95rem;
+        font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+        letter-spacing: 0.04em;
+        margin: 0 auto 0.6rem;
+      }
+
+      .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1em;
+        background: var(--cyan);
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink { 50% { opacity: 0; } }
+
+      @keyframes pulse {
+        0%, 100% { filter: drop-shadow(0 0 10px rgba(114, 231, 255, 0.25)); }
+        50%       { filter: drop-shadow(0 0 20px rgba(255, 91, 189, 0.35)); }
+      }
+
       @keyframes drift {
         0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
         50% { transform: translate3d(1.25rem, 1rem, 0) scale(1.08); }
@@ -185,17 +220,42 @@
   <body>
     <main>
       <section>
-        <div class="eyebrow">Root landing page</div>
-        <p>
-        <br/>a simple entry point with a clearer atmosphere
-        </p>
+        <img class="brand-mark" src="/favicon.svg" alt="drasticstatic" width="52" height="52"/>
+        <div class="eyebrow">drasticstatic</div>
+        <div class="typing-line" id="typer">&nbsp;<span class="cursor"></span></div>
         <h1><span class="accent">Christopher<br />Stephen Wilson</span></h1>
         <p>
-          <br/>click below to visit my full portfolio
+          precision engineering · sacred systems · code that matters
         </p>
-        <a class="cta" href="https://drasticstatic.github.io/resume/">ENTER HERE ↗</a>
-        <div class="note"><br/>This root site is intentionally minimal <br /><br/> — the fuller experience is live at <strong>~/resume/</strong></div>
+        <a class="cta" href="https://drasticstatic.github.io/resume/">discover more ↗</a>
+        <div class="note"><br/>minimal by design — the full story lives at <strong>~/resume/</strong></div>
       </section>
+
+      <script>
+        const lines = [
+          "machinist by trade",
+          "minister by calling",
+          "builder by nature",
+          "trader by discipline",
+          "ai systems architect",
+        ];
+        let li = 0, ci = 0, deleting = false;
+        const el = document.getElementById("typer");
+        function tick() {
+          const word = lines[li];
+          if (!deleting) {
+            ci++;
+            el.innerHTML = word.slice(0, ci) + '<span class="cursor"></span>';
+            if (ci === word.length) { deleting = true; setTimeout(tick, 1800); return; }
+          } else {
+            ci--;
+            el.innerHTML = word.slice(0, ci) + '<span class="cursor"></span>';
+            if (ci === 0) { deleting = false; li = (li + 1) % lines.length; setTimeout(tick, 400); return; }
+          }
+          setTimeout(tick, deleting ? 40 : 70);
+        }
+        setTimeout(tick, 800);
+      </script>
     </main>
   </body>
 </html>
