@@ -198,6 +198,86 @@
         animation: blink 1s step-end infinite;
       }
 
+      /* Center the container */
+      section {
+        text-align: center;
+      }
+
+      large {
+        display: inline-block;
+        font-size: 4rem; /* Makes it nice and big */
+        transition: transform 0.3s ease; /* Smooth transition for the hover */
+        cursor: default;
+      }
+
+      /* The Hover Animation */
+      large:hover {
+        transform: scale(1.2) rotate(5deg); /* Grows and tilts slightly */
+      }
+
+      /* Optional: Gentle floating animation (always active) */
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+        100% { transform: translateY(0px); }
+      }
+
+      large {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .cta {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.95rem 1.4rem;
+        border-radius: 999px;
+        background: linear-gradient(135deg, rgba(255, 91, 189, 0.95), rgba(114, 231, 255, 0.92));
+        color: #071423; /* Original dark text */
+        text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        /* The "Idle" breath */
+        animation: breathe 4s infinite ease-in-out;
+      }
+
+      .cta:hover {
+        /* Fix readability: White text with a slight dark glow for contrast */
+        color: #ffffff;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+        /* The "Active" state: Scale up and shift gears */
+        transform: translateY(-5px) scale(1.08);
+        filter: saturate(1.4) brightness(1.1);
+
+        /* Faster, more intense pulse when hovered */
+        animation: hover-pulse 1.5s infinite ease-in-out;
+
+        box-shadow:
+          0 20px 40px rgba(114, 231, 255, 0.4),
+          0 0 20px rgba(255, 91, 189, 0.4);
+      }
+
+      /* 1. Slow Idle Breath */
+      @keyframes breathe {
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.03); opacity: 1; }
+      }
+
+      /* 2. Fast Hover Pulse (The "Better" Animation) */
+      @keyframes hover-pulse {
+        0%, 100% { transform: translateY(-5px) scale(1.08); }
+        50% { transform: translateY(-8px) scale(1.12); }
+      }
+
+
+      /* A pulse that breathes with your background colors */
+      @keyframes pulse-glow {
+        0%, 100% { box-shadow: 0 0 10px rgba(114, 231, 255, 0.2); }
+        50% { box-shadow: 0 0 25px rgba(255, 91, 189, 0.4); }
+      }
+
       @keyframes blink { 50% { opacity: 0; } }
 
       @keyframes pulse {
@@ -223,12 +303,14 @@
       <section>
         <img class="brand-mark" src="/favicon.svg" alt="drasticstatic" width="52" height="52"/>
         <div class="eyebrow">drasticstatic's root landing page</div>
-        <p>a simple entry point with a clearer atmosphere</p><br/>
+        <p>a simple entry point with a clearer atmosphere</p><br/><br/><br/>
         <h1><span class="accent">Christopher<br />Stephen Wilson</span></h1>
         <div class="typing-line" id="typer">&nbsp;<span class="cursor"></span></div>
-        <p><br/>precision engineering · sacred systems · code that matters</p>
-        <a class="cta" href="https://drasticstatic.github.io/resume/">Enter HERE to Discover More ↗</a>
-        <div class="note"><br/>This root site is intentionally minimal by design — the full experience is live at <strong>~/resume/</strong></div>
+        <p>precision engineering · sacred systems · code that matters</p><br/><br/><br/><br/>
+        <div class="note"><br/><em>root site is intentionally minimal by design — the full experience is live at <strong>~/resume/</strong></em></div>
+        <a class="cta" href="https://drasticstatic.github.io/resume/">✨ Enter HERE to Discover More ↗</a>
+        <br/><br/><br/><br/><br/><br/><br/><large style="font-size: 30px;">🧑🏽‍💻</large>
+        <br/><a href="https://github.com/drasticstatic">return to GitHub profile ↗</a>
       </section>
 
       <script>
