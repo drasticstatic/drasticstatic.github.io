@@ -1,0 +1,28 @@
+# .augmentignore — drasticstatic.github.io (portfolio landing page)
+
+# Sensitive data — never index
+.env*
+secrets/
+*.key
+*.pem
+
+# Logs and temp
+*.log
+tmp/
+temp/
+*.tmp
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Large media / binary
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.mp4
+*.zip
+*.tar.gz
