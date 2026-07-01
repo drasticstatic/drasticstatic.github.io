@@ -26,6 +26,17 @@
 
       * { box-sizing: border-box; }
 
+      /* ── Rainbow scrollbar ── */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #ff5bbd, #8a6dff, #72e7ff);
+        border-radius: 999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #ff7cd6, #a38dff, #94f0ff);
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
@@ -35,7 +46,9 @@
           radial-gradient(circle at bottom right, rgba(255, 91, 189, 0.18), transparent 32%),
           linear-gradient(155deg, var(--bg) 0%, #0a1020 52%, var(--bg-alt) 100%);
         color: var(--text);
-        overflow: hidden;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: #8a6dff #060816;
       }
 
       body::before,
@@ -291,7 +304,6 @@
       }
 
       @media (max-width: 600px) {
-        body { overflow: auto; }
         section { padding: 2.25rem 1.35rem; }
         p { font-size: 1rem; }
         .cta { width: 100%; }
