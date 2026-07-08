@@ -50,7 +50,7 @@
       * { scrollbar-width: thin; scrollbar-color: #8a6dff #060816; }
 
       main {
-        width: min(100%, 28rem);
+        width: min(100%, 65rem);
         padding: 2.5rem clamp(1.5rem, 5vw, 3rem);
         text-align: center;
         border-radius: 24px;
@@ -77,7 +77,7 @@
         line-height: 1.75;
         margin: 0 auto 1.25rem;
         font-size: 1.05rem;
-        max-width: 26rem;
+        max-width: 44rem;
       }
 
       .verse em { color: #ffffff; font-style: normal; }
@@ -85,7 +85,7 @@
       blockquote {
         margin: 0 auto 1.25rem;
         padding: 1.25rem 1.5rem;
-        max-width: 24rem;
+        max-width: 55rem;
         border-left: 3px solid var(--violet);
         background: rgba(138, 109, 255, 0.08);
         border-radius: 0 12px 12px 0;
@@ -101,6 +101,7 @@
         font-style: normal;
         font-size: 0.82rem;
         color: var(--muted);
+        text-align: center;
       }
 
       .sources {
@@ -128,7 +129,7 @@
       .how-this-works {
         margin: 2rem auto 0;
         padding: 1rem 1.25rem;
-        max-width: 24rem;
+        max-width: 44rem;
         border: 1px dashed var(--panel-border);
         border-radius: 12px;
         font-size: 0.8rem;
@@ -155,9 +156,10 @@
     <main id="teach-view">
       <img class="brand" src="/favicon.svg" alt="drasticstatic" width="52" height="52" />
       <h1>404</h1>
-
+      <br>
       <a class="cta" href="https://drasticstatic.github.io/">Return to the Path ↗</a>
-
+      <br><br><br>
+      <h1>Lost?</h1>
       <p class="subtitle">
         You looked where you expected to find it...
       </p>
@@ -181,12 +183,8 @@
         </cite>
       </blockquote>
 
-
       <p class="verse">
-      </p>
-
-      <p class="verse">
-        The <em>Strength</em> in you is all you need.<br>
+        <br>The <em>Strength</em> in you is all you need.<br>
       </p>
 
       <blockquote>
@@ -202,7 +200,7 @@
       </blockquote>
 
       <p class="verse">
-        So seek no longer in a place that does not hold the Answer
+        <br>So seek no longer in a place that does not hold the Answer
       </p>
 
       <blockquote>
@@ -219,9 +217,11 @@
 
       <div class="how-this-works">
         <strong>How this works:</strong><br><br>
-        A normal <code>drasticstatic.github.io/404</code> instantly redirects to the homepage via <br><code>const isTeach = <br>window.location.search.includes("teach")</code>
-        <br><br>Adding <code>?teach</code> to any 404 path (ie: <code>drasticstatic.github.io/404?teach</code>) reveals this page as a gentle reminder<br><br>
-        ³<em>"It is thus a teaching device and a means to an end."</em>
+        A normal <code>404</code> instantly redirects to the homepage via <br><code>const isTeach = window.location.search.includes("teach")</code>
+        <br><br>Adding <code>?teach</code> to any 404 path
+        <br>( ie: <code>drasticstatic.github.io/404?teach</code> )
+        <br>reveals this page as a gentle reminder<br><br>
+        ³<em>"It is thus a teaching device and a means to an end."</em><br>
         <cite>~ <em>ACIM</em>, T-1.I.15:3 —
           <a href="https://acim.org/acim/en/s/53" target="_blank" rel="noopener">FIP Edition ↗</a>
         </cite><br>
