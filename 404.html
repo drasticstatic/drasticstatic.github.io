@@ -24,7 +24,6 @@
         margin: 0;
         min-height: 100dvh;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
         background:
@@ -37,6 +36,18 @@
         padding: 2rem 1.5rem;
         overflow-wrap: anywhere;
       }
+
+      /* Rainbow scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #ff5bbd, #8a6dff, #72e7ff);
+        border-radius: 999px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, #ff7cd6, #a38dff, #94f0ff);
+      }
+      * { scrollbar-width: thin; scrollbar-color: #8a6dff #060816; }
 
       main {
         width: min(100%, 28rem);
@@ -71,6 +82,27 @@
 
       .verse em { color: #ffffff; font-style: normal; }
 
+      blockquote {
+        margin: 0 auto 1.25rem;
+        padding: 1.25rem 1.5rem;
+        max-width: 24rem;
+        border-left: 3px solid var(--violet);
+        background: rgba(138, 109, 255, 0.08);
+        border-radius: 0 12px 12px 0;
+        text-align: left;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.98rem;
+      }
+      blockquote em { color: #ffffff; font-style: normal; }
+      blockquote cite {
+        display: block;
+        margin-top: 0.75rem;
+        font-style: normal;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
       .sources {
         color: var(--muted);
         font-size: 0.82rem;
@@ -93,7 +125,25 @@
       }
       .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(114, 231, 255, 0.16); }
 
-      .scrollable { overflow-y: auto; max-height: 80vh; padding-right: 0.5rem; }
+      .how-this-works {
+        margin: 2rem auto 0;
+        padding: 1rem 1.25rem;
+        max-width: 24rem;
+        border: 1px dashed var(--panel-border);
+        border-radius: 12px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .how-this-works em { color: #ffffff; font-style: italic; }
+      .how-this-works code {
+        background: rgba(138, 109, 255, 0.12);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+      }
+      .how-this-works a { color: var(--violet); text-decoration: none; }
+      .how-this-works a:hover { text-decoration: underline; }
 
       /* redirect-only view */
       .redirect-view h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
@@ -103,37 +153,61 @@
   <body>
     <!-- Teaching view -->
     <main id="teach-view">
-      <div class="scrollable">
-        <img class="brand" src="/favicon.svg" alt="drasticstatic" width="52" height="52" />
-        <h1>404</h1>
-        <p class="subtitle">
-          You looked where you expected to find it.<br>
-          The mind seeks in form what only Spirit can give.
-        </p>
+      <img class="brand" src="/favicon.svg" alt="drasticstatic" width="52" height="52" />
+      <h1>404</h1>
+      <p class="subtitle">
+        You looked where you expected to find it.<br>
+        The mind seeks in form what only Spirit can give.
+      </p>
 
-        <p class="verse">
-          where is your faith?<br>
-          The weakness is not you.<br>
-          The <em>strength</em> in you is all you need to be<br>
-          the saviour of the world.<br>
-          There is no death<br>
-          because <em>Forever unopposed by opposites of any kind,</em><br>
-          <em>the thoughts of God remain forever changeless,</em><br>
-          <em>with the power to extend forever changelessly,</em><br>
-          <em>but yet within themselves, for they are everywhere.</em><br><br>
-          So seek no longer<br>
-          in a place that does not hold the Answer.<br>
-          Turn within, and let the quiet come.
-        </p>
+      <p class="verse">
+        "⁵<em>Forget what you have seen, and raise your eyes in faith to what you now can see.</em>"
+      </p>
 
-        <p class="sources">
-          <em>A Course in Miracles</em> — Lesson 167<br>
-          <a href="https://acim.org/acim/lesson-167/there-is-one-life-which-ther.html/en/s/483" target="_blank" rel="noopener">FIP Edition ↗</a>
-          ·
-          <a href="https://acimce.app/book/W-167.8:4" target="_blank" rel="noopener">CE Edition ↗</a>
-        </p>
+      <p class="verse">
+        "The <em>Strength</em> in you is all you need to be<br>
+        the saviour of the world.<br>
+        And it is by his own desire that he is freed. ⁷<em>Such is his strength, and not his weakness.</em>"
+      </p>
 
-        <a class="cta" href="https://drasticstatic.github.io/">Return to the Path ↗</a>
+      <blockquote>
+        "⁷<em>But think you not the picture is destroyed in any way. ⁸What God creates is safe from all corruption, unchanged and perfect in eternity.</em>"
+        <cite>— <em>A Course in Miracles</em>, T-25.II.6:7–7:1</cite>
+      </blockquote>
+
+      <blockquote>
+        "⁶<em>The purpose of the Atonement is to restore everything to you; or rather, to restore it to your awareness.</em>"
+        <cite>— <em>A Course in Miracles</em>, T-1.IV.3:6</cite>
+      </blockquote>
+
+      <p class="verse">
+        "<em>Knowledge can always be remembered, never having been destroyed.</em>"
+      </p>
+
+      <p class="verse">
+        So seek no longer in a place that does not hold the Answer.<br>
+        Turn within, and let the quiet come.
+      </p>
+
+      <div class="sources">
+        Sources:<br>
+        <a href="https://acim.org/acim/lesson-191/i-am-the-holy-son-of-god-himself/en/s/599" target="_blank" rel="noopener">Lesson 191 — FIP Edition ↗</a><br>
+        <a href="https://acim.org/acim/en/s/257" target="_blank" rel="noopener">T-21.VI — FIP Edition ↗</a><br>
+        <a href="https://acim.org/acim/en/s/231" target="_blank" rel="noopener">T-19.III — FIP Edition ↗</a><br>
+        <a href="https://acim.org/acim/en/s/838" target="_blank" rel="noopener">M-23 — FIP Edition ↗</a><br>
+        <a href="https://acim.org/acim/en/s/286" target="_blank" rel="noopener">T-25.II — FIP Edition ↗</a><br>
+        <a href="https://acim.org/acim/en/s/56" target="_blank" rel="noopener">T-1.IV — FIP Edition ↗</a><br>
+        <a href="https://acim.org/acim/en/s/74" target="_blank" rel="noopener">T-3.IV — FIP Edition ↗</a>
+      </div>
+
+      <a class="cta" href="https://drasticstatic.github.io/">Return to the Path ↗</a>
+
+      <div class="how-this-works">
+        <strong>How this works:</strong><br>
+        A normal 404 on this site instantly redirects to the homepage. Adding <code>?teach</code> to any 404 path reveals this gentle reminder to turn within.<br><br>
+        <em>"It is thus a teaching device and a means to an end."</em> — T-1.I.15:3<br>
+        <em>"How can what is fully shared be withheld and then revealed?"</em> — T-7.I.7:14-15<br>
+        <em>"How can you wake children in a more kindly way than by a gentle Voice that will not frighten them, but will merely remind them that the night is over and the light has come?"</em> — T-6.V.2:1
       </div>
     </main>
 
