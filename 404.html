@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>404 — Not Found</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <style>
       :root {
         color-scheme: dark;
@@ -46,6 +47,7 @@
         backdrop-filter: blur(18px);
       }
 
+      .brand { width: 52px; height: 52px; margin-bottom: 1rem; filter: drop-shadow(0 0 10px rgba(114,231,255,0.25)); }
       h1 {
         font-size: 3.5rem;
         margin: 0 0 0.25rem;
@@ -67,6 +69,15 @@
 
       .verse em { color: #ffffff; font-style: normal; }
 
+      .sources {
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+      .sources a { color: var(--violet); text-decoration: none; }
+      .sources a:hover { text-decoration: underline; }
+
       .cta {
         display: inline-block;
         margin-top: 0.75rem;
@@ -80,9 +91,6 @@
       }
       .cta:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(114, 231, 255, 0.16); }
 
-      .quiet-link { color: var(--muted); font-size: 0.75rem; text-decoration: none; opacity: 0.6; transition: opacity 0.3s ease; margin-top: 1.25rem; display: inline-block; }
-      .quiet-link:hover { opacity: 0.9; text-decoration: underline; }
-
       /* redirect-only view */
       .redirect-view h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
       .redirect-view .subtitle { margin-bottom: 0; }
@@ -91,25 +99,29 @@
   <body>
     <!-- Teaching view (shown when arriving from "Lost?") -->
     <main id="teach-view">
+      <img class="brand" src="/favicon.svg" alt="drasticstatic" width="52" height="52" />
       <h1>404</h1>
-      <p class="subtitle">You looked where you expected to find it.<br>The mind seeks in form what only Spirit can give.</p>
-
-      <p class="verse">
-        "You who perceive yourself as weak and frail,<br>
-        with weight so heavy it is almost grief,<br>
-        where is your faith?  The weakness is not you.<br>
-        The <em>strength</em> in you is all you need to be<br>
-        the saviour of the world.  There is no death<br>
-        because what lives forever can be changed,<br>
-        but not destroyed.  So seek no longer<br>
-        in a place that does not hold the Answer.<br>
-        Turn within, and let the quiet come."<br>
-        — <em>A Course in Miracles</em>
+      <p class="subtitle">
+        You looked where you expected to find it.<br>
+        The mind seeks in form what only Spirit can give.
       </p>
 
-      <a class="cta" href="https://drasticstatic.github.io/resume/">Return to the Path ↗</a>
-      <br>
-      <a class="quiet-link" href="/">or go home →</a>
+      <p class="verse">
+        "I am the holy Son of God Himself,<br>
+        and purpose is to use what God has made<br>
+        for use as He intended it to be.<br>
+        Let me not seek to make the world my own,<br>
+        but understand I am as God created me."<br>
+        — <em>A Course in Miracles</em>, Lesson 191
+      </p>
+
+      <p class="sources">
+        <em>Foundation for Inner Peace (FIP)</em>:<br>
+        <a href="https://acim.org/acim/lesson-191/i-am-the-holy-son-of-god-himself/en/s/599" target="_blank" rel="noopener">acim.org → Lesson 191 ↗</a><br>
+        <a href="https://acimce.app/book/W-191" target="_blank" rel="noopener">acimce.app → Complete Edition ↗</a>
+      </p>
+
+      <a class="cta" href="https://drasticstatic.github.io/">Return to the Path ↗</a>
     </main>
 
     <!-- Redirect view (shown for genuine 404s) -->
@@ -122,10 +134,8 @@
       // If this isn't a "?teach" visit, redirect immediately
       const isTeach = window.location.search.includes("teach");
       if (!isTeach) {
-        // Show redirect view, hide teach view
         document.getElementById("teach-view").style.display = "none";
         document.getElementById("redirect-view").style.display = "block";
-        // Go immediately
         window.location.href = "https://drasticstatic.github.io/";
       }
     </script>
