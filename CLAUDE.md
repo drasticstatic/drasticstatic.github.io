@@ -37,3 +37,9 @@ No trading or web3 build context needed here.
 - Static site — no build step, no node_modules
 - Deployed automatically via GitHub Pages from `main` branch root
 - CLAUDE.md is NOT gitignored — no secrets in this repo
+
+---
+
+## Commit Convention
+
+Footer: `Co-Authored-By: Alfred · Claude · [model] <noreply@anthropic.com>`
